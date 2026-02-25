@@ -1,0 +1,71 @@
+[
+  {
+    "chat_id": "payment_issue",
+    "chat_type": "normal",
+    "analysis": {
+      "intent": "payment_issue",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент продемонстрував високий рівень емпатії, ефективно зібрав інформацію, запропонував дієві рішення та успішно вирішив проблему клієнта, що призвело до повної задоволеності."
+    }
+  },
+  {
+    "chat_id": "tech_error",
+    "chat_type": "normal",
+    "analysis": {
+      "intent": "tech_error",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент ефективно діагностував та вирішив технічну проблему клієнта, надаючи чіткі покрокові інструкції та підтримуючи професійний і емпатичний тон, що призвело до повного задоволення клієнта."
+    }
+  },
+  {
+    "chat_id": "account_access",
+    "chat_type": "normal",
+    "analysis": {
+      "intent": "account_access",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Клієнт успішно відновив доступ до свого акаунту завдяки швидкій та ефективній допомозі агента, висловивши високу задоволеність."
+    }
+  },
+  {
+    "chat_id": "tariff_question",
+    "chat_type": "normal",
+    "analysis": {
+      "intent": "tariff_question",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент надав вичерпну та точну інформацію щодо тарифного плану, відповів на всі додаткові питання клієнта, підтримував ввічливий тон і повністю вирішив запит, що призвело до явної задоволеності клієнта."
+    }
+  },
+  {
+    "chat_id": "refund",
+    "chat_type": "normal",
+    "analysis": {
+      "intent": "refund",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент швидко та ефективно вирішив питання клієнта щодо повернення коштів, надавши всю необхідну інформацію та ініціювавши процес, що призвело до високої задоволеності клієнта."
+    }
+  },
+  {
+    "chat_id": "payment_conflict",
+    "chat_type": "conflict",
+    "analysis": {
+      "intent": "payment_issue",
+      "satisfaction": "unsatisfied",
+      "quality_score": 4,
+      "agent_mistakes": [
+        "ignored_question",
+        "no_resolution"
+      ],
+      "reasoning": "The customer is highly unsatisfied because their premium subscription, paid for immediately, is still not active, and the proposed resolution time is unacceptable despite the agent's apologies and compensation offer."
+    }
+  }
+]
