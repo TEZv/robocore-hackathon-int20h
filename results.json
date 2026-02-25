@@ -7,7 +7,7 @@
       "satisfaction": "satisfied",
       "quality_score": 5,
       "agent_mistakes": [],
-      "reasoning": "Агент продемонстрував високий рівень емпатії, ефективно зібрав інформацію, запропонував дієві рішення та успішно вирішив проблему клієнта, що призвело до повної задоволеності."
+      "reasoning": "Клієнт звернувся з проблемою оплати, агент ефективно зібрав інформацію, запропонував дієве рішення та успішно вирішив проблему, що призвело до високої задоволеності клієнта."
     }
   },
   {
@@ -62,10 +62,9 @@
       "satisfaction": "unsatisfied",
       "quality_score": 4,
       "agent_mistakes": [
-        "ignored_question",
-        "no_resolution"
+        "ignored_question"
       ],
-      "reasoning": "The customer is highly unsatisfied because their premium subscription, paid for immediately, is still not active, and the proposed resolution time is unacceptable despite the agent's apologies and compensation offer."
+      "reasoning": "Клієнт залишається незадоволеним через затримку активації підписки та неприйнятний для нього термін вирішення проблеми, незважаючи на емпатію агента, визнання помилки та пропозицію компенсації."
     }
   }
 ]
