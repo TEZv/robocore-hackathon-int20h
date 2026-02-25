@@ -1,1 +1,127 @@
-[]
+[
+  [
+    {
+      "chat_id": "payment_issue",
+      "chat_type": "normal",
+      "analysis": {
+        "intent": "payment_issue",
+        "satisfaction": "satisfied",
+        "quality_score": 5,
+        "agent_mistakes": [],
+        "reasoning": "Агент професійно та швидко вирішив проблему з оплатою, запропонувавши альтернативне рішення (нове посилання для оплати), що призвело до повного задоволення клієнта."
+      }
+    },
+    {
+      "chat_id": "tech_error",
+      "chat_type": "normal",
+      "analysis": {
+        "intent": "tech_error",
+        "satisfaction": "satisfied",
+        "quality_score": 5,
+        "agent_mistakes": [],
+        "reasoning": "Агент Юлія професійно та покроково вирішила технічну проблему клієнта з першого звернення, проявивши емпатію та чіткість у інструкціях, що призвело до повного задоволення клієнта."
+      }
+    },
+    {
+      "chat_id": "account_access",
+      "chat_type": "normal",
+      "analysis": {
+        "intent": "account_access",
+        "satisfaction": "satisfied",
+        "quality_score": 5,
+        "agent_mistakes": [],
+        "reasoning": "Агент швидко і професійно вирішив проблему відновлення доступу до акаунту, клієнт повністю задоволений результатом і висловив подяку."
+      }
+    },
+    {
+      "chat_id": "tariff_question",
+      "chat_type": "normal",
+      "analysis": {
+        "intent": "tariff_question",
+        "satisfaction": "satisfied",
+        "quality_score": 5,
+        "agent_mistakes": [],
+        "reasoning": "Агент надав вичерпну, структуровану та точну інформацію про тарифний план, відповів на всі уточнювальні запитання клієнта, був ввічливим і професійним протягом усього діалогу."
+      }
+    },
+    {
+      "chat_id": "refund",
+      "chat_type": "normal",
+      "analysis": {
+        "intent": "refund",
+        "satisfaction": "satisfied",
+        "quality_score": 5,
+        "agent_mistakes": [],
+        "reasoning": "Агент швидко та професійно вирішив питання повернення коштів, надав чітку інформацію про терміни та процес, клієнт явно висловив задоволення результатом."
+      }
+    },
+    {
+      "chat_id": "payment_conflict",
+      "chat_type": "conflict",
+      "analysis": {
+        "intent": "payment_issue",
+        "satisfaction": "unsatisfied",
+        "quality_score": 3,
+        "agent_mistakes": [
+          "ignored_question",
+          "no_resolution"
+        ],
+        "reasoning": "Агент поводився ввічливо та запропонував компенсацію, але проігнорував пряме запитання клієнта щодо відповідальності за помилку, не зміг забезпечити негайне вирішення проблеми і запропонував очікування до 24 годин, що є неприйнятним для клієнта, який очікував миттєвий доступ."
+      }
+    },
+    {
+      "chat_id": "rude_agent",
+      "chat_type": "problem",
+      "analysis": {
+        "intent": "tech_error",
+        "satisfaction": "unsatisfied",
+        "quality_score": 1,
+        "agent_mistakes": [
+          "ignored_question",
+          "rude_tone",
+          "no_resolution",
+          "incorrect_info"
+        ],
+        "reasoning": "Агент виявив грубість, відмовився розбиратися з проблемою, надав некоректну інформацію (що нічого не змінювалось), проігнорував законні запити клієнта та закрив звернення без будь-якого вирішення."
+      }
+    },
+    {
+      "chat_id": "wrong_info",
+      "chat_type": "problem",
+      "analysis": {
+        "intent": "tariff_question",
+        "satisfaction": "satisfied",
+        "quality_score": 5,
+        "agent_mistakes": [],
+        "reasoning": "Агент чітко, повно і ввічливо відповів на всі запитання клієнта щодо тарифного плану, клієнт залишився задоволений отриманою інформацією."
+      }
+    },
+    {
+      "chat_id": "hidden_dissatisfaction_1",
+      "chat_type": "easter_egg",
+      "analysis": {
+        "intent": "refund",
+        "satisfaction": "neutral",
+        "quality_score": 3,
+        "agent_mistakes": [
+          "no_resolution"
+        ],
+        "reasoning": "Агент ввічливо обробив запит і зареєстрував звернення, але двічі уникнув конкретної відповіді на пряме запитання клієнта щодо термінів повернення коштів, що залишило питання фактично без чіткого вирішення."
+      }
+    },
+    {
+      "chat_id": "hidden_dissatisfaction_2",
+      "chat_type": "easter_egg",
+      "analysis": {
+        "intent": "account_access",
+        "satisfaction": "neutral",
+        "quality_score": 3,
+        "agent_mistakes": [
+          "unnecessary_escalation",
+          "no_resolution"
+        ],
+        "reasoning": "Агент був ввічливим і структурованим, однак передав типову проблему з доступом до акаунту на ескалацію замість самостійного вирішення, що призвело до незадоволення клієнта очікуванням 24 години та відсутності реального результату під час сесії."
+      }
+    }
+  ]
+]
