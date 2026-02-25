@@ -282,6 +282,10 @@ python-dotenv
 ---
 
 ## 👥 Команда
+- kosatiks.group@gmail.com > PowerBI Analysis + GitHub (push)
+- sobtsova.sofia@lll.kpi.ua > analyze.py + results.json
+- sashaufantsev@gmail.com > generate.py + dataset.json
+- bohdan655628@gmail.com > GitHub + README + QA
 
 Розроблено в рамках хакатону **int20h** — SKELAR AI Test Task
 
