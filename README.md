@@ -46,7 +46,7 @@
 Завантажити results.json у BI-інструмент (Power BI, Tableau, Metabase, навіть Google Sheets)
 і отримати живий дашборд: середній quality_score по агентам, топ помилок, динаміка задоволеності.
 
-![Visualization Process](<img/PowerBI analysis.png>)
+![Visualization Process](<img/PowerBI Analysis.png>)
 
 **2. Автоматичні алерти**  <br>
 Тригерити сповіщення коли quality_score < 3 або виявлено hidden dissatisfaction —
