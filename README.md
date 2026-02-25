@@ -212,7 +212,7 @@ docker run --env-file .env -v %cd%:/app robocore-hackathon-int20h python analyze
 > Прапор `-v` монтує поточну папку всередину контейнера —
 > завдяки цьому `dataset.json` і `results.json` зберігаються на твій комп'ютер, а не всередині контейнера.
 
-![Process launching](img/docker-launch.jpg)
+![Process launching](img/Docker-Launch.jpg)
 
 ---
 
