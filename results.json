@@ -1,0 +1,543 @@
+[
+  {
+    "chat_id": "payment_success_v1",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "payment_success_v1",
+      "intent": "payment_issue",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент успішно допоміг клієнту вирішити проблему з оплатою, надавши альтернативні кроки."
+    }
+  },
+  {
+    "chat_id": "tech_success_v1",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "tech_success_v1",
+      "intent": "tech_error",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент успішно діагностував та вирішив технічну проблему клієнта, надавши чіткі інструкції."
+    }
+  },
+  {
+    "chat_id": "access_success_v1",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "access_success_v1",
+      "intent": "account_access",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент оперативно надав клієнту код для відновлення доступу, швидко вирішивши проблему."
+    }
+  },
+  {
+    "chat_id": "tariff_success_v1",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "tariff_success_v1",
+      "intent": "tariff_question",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент надав вичерпні та зрозумілі відповіді на всі питання клієнта щодо тарифів, забезпечивши повну прозорість."
+    }
+  },
+  {
+    "chat_id": "refund_success_v1",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "refund_success_v1",
+      "intent": "refund",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент оперативно та емпатично оформив повернення коштів, задовольнивши запит клієнта."
+    }
+  },
+  {
+    "chat_id": "other_success_v1",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "other_success_v1",
+      "intent": "other",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент швидко та чітко відповів на питання клієнта щодо графіку роботи на свята."
+    }
+  },
+  {
+    "chat_id": "tech_success_pro_v1",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "tech_success_pro_v1",
+      "intent": "tech_error",
+      "satisfaction": "neutral",
+      "quality_score": 4,
+      "agent_mistakes": [],
+      "reasoning": "Агент професійно опрацював складну технічну проблему, зібрав необхідну інформацію та коректно ескалував її до відповідної команди."
+    }
+  },
+  {
+    "chat_id": "payment_conflict_v1",
+    "chat_type": "conflict",
+    "analysis": {
+      "chat_id": "payment_conflict_v1",
+      "intent": "payment_issue",
+      "satisfaction": "unsatisfied",
+      "quality_score": 3,
+      "agent_mistakes": [],
+      "reasoning": "Агент вирішив проблему подвійного списання, але не зміг повністю заспокоїти клієнта щодо повернення комісії, що призвело до незадоволення."
+    }
+  },
+  {
+    "chat_id": "tech_problem_v1",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "tech_problem_v1",
+      "intent": "tech_error",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "rude_tone",
+        "no_resolution"
+      ],
+      "reasoning": "Агент звинуватив клієнта у проблемі, відмовився від відповідальності та не надав ефективного рішення, що призвело до незадоволення."
+    }
+  },
+  {
+    "chat_id": "tariff_problem_v1",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "tariff_problem_v1",
+      "intent": "tariff_question",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент чітко та швидко відповів на питання клієнта щодо вартості річної підписки."
+    }
+  },
+  {
+    "chat_id": "access_problem_v1",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "access_problem_v1",
+      "intent": "account_access",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "no_resolution",
+        "unnecessary_escalation"
+      ],
+      "reasoning": "Агент запропонував надмірно складний та неадекватний шлях вирішення простої проблеми, не надавши безпосередньої допомоги."
+    }
+  },
+  {
+    "chat_id": "refund_conflict_v1",
+    "chat_type": "conflict",
+    "analysis": {
+      "chat_id": "refund_conflict_v1",
+      "intent": "refund",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "rude_tone",
+        "no_resolution"
+      ],
+      "reasoning": "Агент відмовив у поверненні коштів без належного пояснення та був грубим, що призвело до незадоволення клієнта."
+    }
+  },
+  {
+    "chat_id": "payment_problem_2_v1",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "payment_problem_2_v1",
+      "intent": "payment_issue",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "no_resolution",
+        "rude_tone"
+      ],
+      "reasoning": "Агент не вирішив проблему клієнта, надав загальну відповідь і різко закрив чат, залишивши клієнта в паніці."
+    }
+  },
+  {
+    "chat_id": "hidden_dissatisfaction_1_v1",
+    "chat_type": "easter_egg",
+    "analysis": {
+      "chat_id": "hidden_dissatisfaction_1_v1",
+      "intent": "tech_error",
+      "satisfaction": "unsatisfied",
+      "quality_score": 2,
+      "agent_mistakes": [
+        "no_resolution"
+      ],
+      "reasoning": "Агент переклав відповідальність за вирішення проблеми на клієнта, надавши непрактичну інструкцію замість прямої допомоги."
+    }
+  },
+  {
+    "chat_id": "hidden_dissatisfaction_2_v1",
+    "chat_type": "easter_egg",
+    "analysis": {
+      "chat_id": "hidden_dissatisfaction_2_v1",
+      "intent": "other",
+      "satisfaction": "unsatisfied",
+      "quality_score": 2,
+      "agent_mistakes": [],
+      "reasoning": "Агент повідомив про неактивність промокоду, але не запропонував альтернативного рішення, що призвело до розчарування клієнта."
+    }
+  },
+  {
+    "chat_id": "hidden_dissatisfaction_3_v1",
+    "chat_type": "easter_egg",
+    "analysis": {
+      "chat_id": "hidden_dissatisfaction_3_v1",
+      "intent": "account_access",
+      "satisfaction": "unsatisfied",
+      "quality_score": 2,
+      "agent_mistakes": [
+        "no_resolution"
+      ],
+      "reasoning": "Агент запропонував рішення, але з неприйнятно довгим терміном виконання, що викликало незадоволення клієнта."
+    }
+  },
+  {
+    "chat_id": "mixed_tariff_v1",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "mixed_tariff_v1",
+      "intent": "tariff_question",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент успішно зрозумів запит клієнта, запропонував відповідний тариф та надав чіткі інструкції для підключення."
+    }
+  },
+  {
+    "chat_id": "mixed_other_v1",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "mixed_other_v1",
+      "intent": "other",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "ignored_question",
+        "no_resolution"
+      ],
+      "reasoning": "Агент повністю проігнорував запит клієнта на видалення акаунту, натомість намагаючись продати послуги, що призвело до незадоволення."
+    }
+  },
+  {
+    "chat_id": "mixed_refund_v1",
+    "chat_type": "easter_egg",
+    "analysis": {
+      "chat_id": "mixed_refund_v1",
+      "intent": "refund",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "no_resolution"
+      ],
+      "reasoning": "Агент переклав відповідальність за проблему на банк клієнта, не запропонувавши жодної допомоги чи розслідування."
+    }
+  },
+  {
+    "chat_id": "mixed_tech_v1",
+    "chat_type": "conflict",
+    "analysis": {
+      "chat_id": "mixed_tech_v1",
+      "intent": "tech_error",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "rude_tone",
+        "no_resolution"
+      ],
+      "reasoning": "Агент звинуватив клієнта, відмовився від відповідальності та не надав жодного рішення щодо серйозної проблеми втрати коштів."
+    }
+  },
+  {
+    "chat_id": "payment_success_v2",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "payment_success_v2",
+      "intent": "payment_issue",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент швидко і ефективно вирішив проблему клієнта з оплатою, надавши нове посилання, що призвело до успішної транзакції."
+    }
+  },
+  {
+    "chat_id": "tech_success_v2",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "tech_success_v2",
+      "intent": "tech_error",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент надав чіткі та ефективні інструкції, які допомогли клієнту вирішити технічну проблему з додатком."
+    }
+  },
+  {
+    "chat_id": "access_success_v2",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "access_success_v2",
+      "intent": "account_access",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент оперативно надав клієнту необхідні дані та посилання для відновлення доступу до акаунту, що повністю вирішило проблему."
+    }
+  },
+  {
+    "chat_id": "tariff_success_v2",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "tariff_success_v2",
+      "intent": "tariff_question",
+      "satisfaction": "neutral",
+      "quality_score": 4,
+      "agent_mistakes": [],
+      "reasoning": "Агент надав вичерпні відповіді на всі запитання клієнта щодо тарифу, включаючи додаткові умови та акції, хоча клієнт ще не прийняв остаточного рішення."
+    }
+  },
+  {
+    "chat_id": "refund_success_v2",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "refund_success_v2",
+      "intent": "refund",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент виявив емпатію, підтвердив можливість повернення коштів та оперативно оформив запит, надавши клієнту чітку інформацію про терміни."
+    }
+  },
+  {
+    "chat_id": "other_success_v2",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "other_success_v2",
+      "intent": "other",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент надав повну та зрозумілу інформацію щодо графіку роботи у святкові дні, що повністю задовольнило запит клієнта."
+    }
+  },
+  {
+    "chat_id": "tech_success_pro_v2",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "tech_success_pro_v2",
+      "intent": "tech_error",
+      "satisfaction": "neutral",
+      "quality_score": 4,
+      "agent_mistakes": [],
+      "reasoning": "Агент продемонстрував глибоке розуміння складної технічної проблеми та запропонував логічні кроки для подальшої діагностики, хоча повного вирішення в рамках діалогу не відбулося."
+    }
+  },
+  {
+    "chat_id": "payment_conflict_v2",
+    "chat_type": "conflict",
+    "analysis": {
+      "chat_id": "payment_conflict_v2",
+      "intent": "payment_issue",
+      "satisfaction": "unsatisfied",
+      "quality_score": 2,
+      "agent_mistakes": [
+        "no_resolution",
+        "rude_tone"
+      ],
+      "reasoning": "Агент не зміг повністю вирішити проблему клієнта, ігноруючи питання про комісію та не надавши вичерпної відповіді, що призвело до подальшого невдоволення."
+    }
+  },
+  {
+    "chat_id": "tech_problem_v2",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "tech_problem_v2",
+      "intent": "tech_error",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "incorrect_info",
+        "rude_tone",
+        "no_resolution"
+      ],
+      "reasoning": "Агент відмовився визнавати проблему з додатком, переклав відповідальність на клієнта та не запропонував жодного рішення, що призвело до повного невдоволення."
+    }
+  },
+  {
+    "chat_id": "tariff_problem_v2",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "tariff_problem_v2",
+      "intent": "tariff_question",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент чітко відповів на запитання клієнта щодо вартості тарифу, що призвело до його рішення оформити підписку."
+    }
+  },
+  {
+    "chat_id": "access_problem_v2",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "access_problem_v2",
+      "intent": "account_access",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "incorrect_info",
+        "no_resolution",
+        "unnecessary_escalation"
+      ],
+      "reasoning": "Агент надав абсолютно неадекватне та непрактичне рішення проблеми з доступом, що викликало роздратування та не вирішило запит клієнта."
+    }
+  },
+  {
+    "chat_id": "refund_conflict_v2",
+    "chat_type": "conflict",
+    "analysis": {
+      "chat_id": "refund_conflict_v2",
+      "intent": "refund",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "rude_tone",
+        "no_resolution",
+        "ignored_question"
+      ],
+      "reasoning": "Агент відмовив у поверненні коштів без належного пояснення та в грубій формі, ігноруючи запитання клієнта, що призвело до конфлікту та невдоволення."
+    }
+  },
+  {
+    "chat_id": "payment_problem_2_v2",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "payment_problem_2_v2",
+      "intent": "payment_issue",
+      "satisfaction": "unsatisfied",
+      "quality_score": 2,
+      "agent_mistakes": [
+        "no_resolution",
+        "unnecessary_escalation"
+      ],
+      "reasoning": "Агент не вирішив проблему клієнта з активацією послуги після оплати, лише попросив очікувати і закрив чат, залишивши клієнта без чіткого рішення."
+    }
+  },
+  {
+    "chat_id": "hidden_dissatisfaction_1_v2",
+    "chat_type": "easter_egg",
+    "analysis": {
+      "chat_id": "hidden_dissatisfaction_1_v2",
+      "intent": "tech_error",
+      "satisfaction": "unsatisfied",
+      "quality_score": 2,
+      "agent_mistakes": [
+        "no_resolution",
+        "unnecessary_escalation"
+      ],
+      "reasoning": "Агент не надав прямої допомоги, а лише перенаправив клієнта на об'ємну інструкцію, що не вирішило проблему і призвело до прихованого невдоволення."
+    }
+  },
+  {
+    "chat_id": "hidden_dissatisfaction_2_v2",
+    "chat_type": "easter_egg",
+    "analysis": {
+      "chat_id": "hidden_dissatisfaction_2_v2",
+      "intent": "other",
+      "satisfaction": "unsatisfied",
+      "quality_score": 2,
+      "agent_mistakes": [
+        "no_resolution",
+        "ignored_question"
+      ],
+      "reasoning": "Агент не зміг вирішити проблему клієнта з промокодом, не пояснив розбіжності з інформацією від друга та не запропонував альтернативного рішення, що призвело до невдоволення."
+    }
+  },
+  {
+    "chat_id": "hidden_dissatisfaction_3_v2",
+    "chat_type": "easter_egg",
+    "analysis": {
+      "chat_id": "hidden_dissatisfaction_3_v2",
+      "intent": "account_access",
+      "satisfaction": "unsatisfied",
+      "quality_score": 3,
+      "agent_mistakes": [
+        "no_resolution"
+      ],
+      "reasoning": "Агент повідомив про тривалий термін вирішення запиту (до 5 робочих днів), що не є миттєвим рішенням і може викликати невдоволення клієнта."
+    }
+  },
+  {
+    "chat_id": "mixed_tariff_v2",
+    "chat_type": "normal",
+    "analysis": {
+      "chat_id": "mixed_tariff_v2",
+      "intent": "tariff_question",
+      "satisfaction": "satisfied",
+      "quality_score": 5,
+      "agent_mistakes": [],
+      "reasoning": "Агент успішно адаптував стиль спілкування до клієнта, надав вичерпну та привабливу інформацію про тариф, що повністю задовольнило запит."
+    }
+  },
+  {
+    "chat_id": "mixed_other_v2",
+    "chat_type": "problem",
+    "analysis": {
+      "chat_id": "mixed_other_v2",
+      "intent": "other",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "ignored_question",
+        "no_resolution"
+      ],
+      "reasoning": "Агент повністю проігнорував прямий запит клієнта на видалення акаунту, натомість намагаючись нав'язати знижку, що призвело до повного невдоволення."
+    }
+  },
+  {
+    "chat_id": "mixed_refund_v2",
+    "chat_type": "easter_egg",
+    "analysis": {
+      "chat_id": "mixed_refund_v2",
+      "intent": "refund",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "incorrect_info",
+        "no_resolution",
+        "rude_tone"
+      ],
+      "reasoning": "Агент переклав відповідальність на банк клієнта, не запропонувавши жодної допомоги чи перевірки зі свого боку, що призвело до невдоволення та не вирішило проблему."
+    }
+  },
+  {
+    "chat_id": "mixed_tech_v2",
+    "chat_type": "conflict",
+    "analysis": {
+      "chat_id": "mixed_tech_v2",
+      "intent": "tech_error",
+      "satisfaction": "unsatisfied",
+      "quality_score": 1,
+      "agent_mistakes": [
+        "rude_tone",
+        "incorrect_info",
+        "no_resolution"
+      ],
+      "reasoning": "Агент був вкрай грубим, звинуватив клієнта, відмовився розслідувати проблему та погрожував завершити розмову, що є неприпустимим."
+    }
+  }
+]
