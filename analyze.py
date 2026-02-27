@@ -1,121 +1,137 @@
-import google.generativeai as genai
-import json
 import os
+import json
 import time
+import google.generativeai as genai
 from dotenv import load_dotenv
 
+# Завантажуємо змінні оточення (API ключ)
 load_dotenv()
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+API_KEY = os.getenv("GEMINI_API_KEY")
 
-# Використовуємо 2.5-flash, бо робимо всього 2 запити
-model = genai.GenerativeModel("gemini-2.5-flash")
+if not API_KEY:
+    raise ValueError("❌ Помилка: Не знайдено GEMINI_API_KEY у файлі .env!")
 
-BATCH_SIZE = 20
+# Налаштовуємо API
+genai.configure(api_key=API_KEY)
 
+# Використовуємо 2.5 Flash, бо він швидкий і підтримує JSON
+MODEL_ID = "gemini-2.5-flash"
 
-def format_dialogue(messages: list) -> str:
-    """Перетворює список повідомлень в читабельний текст."""
-    lines = []
-    for msg in messages:
-        role = "Клієнт" if msg["role"] == "client" else "Агент"
-        lines.append(f"{role}: {msg['text']}")
-    return "\n".join(lines)
+# Налаштування генерації (жорстко вимагаємо JSON)
+generation_config = genai.GenerationConfig(
+    temperature=0.1,  # Низька температура: менше креативу, більше сухої аналітики
+    response_mime_type="application/json"
+)
 
+model = genai.GenerativeModel(
+    model_name=MODEL_ID,
+    generation_config=generation_config
+)
 
-def analyze_batch(batch: list, batch_num: int) -> list:
-    prompt = """Ти — система аналізу якості служби підтримки.
-Проаналізуй наступні діалоги між клієнтом та агентом.
+# Промпт для ролі аналітика
+SYSTEM_PROMPT = """
+Ти — Senior Data Analyst у відділі контролю якості (QA) служби підтримки.
+Твоє завдання: проаналізувати масив діалогів і повернути виключно валідний JSON.
 
-Поверни результат ВИКЛЮЧНО у форматі валідного JSON-масиву об'єктів. Нічого крім JSON!
-Структура масиву має бути такою:
+Для кожного діалогу визнач:
+1. "intent" (категорія проблеми): payment_issue, tech_error, account_access, tariff_question, refund, other.
+2. "satisfaction" (задоволеність клієнта в кінці): satisfied, neutral, unsatisfied.
+3. "score" (оцінка роботи агента від 1 до 5).
+4. "agent_errors" (масив помилок агента, якщо є): rude_tone, ignored_question, slow_response, false_info, none.
+5. "summary" (коротке пояснення оцінки 1-2 реченнями).
+
+Формат виводу — масив об'єктів:
 [
   {
-    "chat_id": "id_діалогу",
-    "intent": "<payment_issue | tech_error | account_access | tariff_question | refund | other>",
-    "satisfaction": "<satisfied | neutral | unsatisfied>",
-    "quality_score": <число від 1 до 5>,
-    "agent_mistakes": ["<список помилок або порожній масив []>"],
-    "reasoning": "<одне речення>"
+    "dialogue_id": "ID_діалогу",
+    "intent": "...",
+    "satisfaction": "...",
+    "score": 5,
+    "agent_errors": ["none"],
+    "summary": "..."
   }
 ]
-
-Можливі помилки агента: ignored_question, incorrect_info, rude_tone, no_resolution, unnecessary_escalation
-ВАЖЛИВО: Якщо клієнт формально дякує але проблема не вирішена — це unsatisfied.
-
-ОСЬ ДІАЛОГИ ДЛЯ АНАЛІЗУ:
 """
-    for chat in batch:
-        prompt += f"\n\n--- ДІАЛОГ (ID: {chat['id']}) ---\n"
-        prompt += format_dialogue(chat["messages"])
 
-    max_retries = 3
-    for attempt in range(max_retries):
+
+def analyze_batch_with_retry(batch_dialogues, retries=3):
+    """Відправляє пакет діалогів на аналіз з механізмом повторних спроб"""
+    prompt = SYSTEM_PROMPT + f"\n\nОсь масив діалогів для аналізу (у форматі JSON):\n{json.dumps(batch_dialogues, ensure_ascii=False, indent=2)}"
+
+    for attempt in range(retries):
         try:
-            print(f"  Відправляю запит до Gemini (Пакет {batch_num}, спроба {attempt + 1})...")
-            response = model.generate_content(
-                prompt,
-                generation_config=genai.GenerationConfig(
-                    temperature=0.1,  # Низька температура, щоб аналітик був об'єктивним роботом
-                    response_mime_type="application/json"  # Жорсткий формат JSON
-                )
-            )
+            print(f"  Відправляю запит до Gemini (спроба {attempt + 1})...")
+            response = model.generate_content(prompt)
 
-            raw = response.text.strip()
-            if raw.startswith("```"):
-                raw = raw.split("```")[1]
-                if raw.startswith("json"):
-                    raw = raw[4:]
+            # Парсимо відповідь, щоб переконатися, що це валідний JSON
+            result_json = json.loads(response.text)
+            return result_json
 
-            parsed = json.loads(raw.strip())
-            return parsed
         except Exception as e:
-            print(f"  ⚠️ Помилка: {e}. Пробуємо ще раз...")
-            time.sleep(5)
-
-    raise Exception("Не вдалося проаналізувати пакет після 3 спроб.")
+            print(f"  ⚠️ Помилка на спробі {attempt + 1}: {e}")
+            if attempt < retries - 1:
+                print("  ⏳ Чекаю 5 секунд перед повторною спробою...")
+                time.sleep(5)
+            else:
+                print("  ❌ Не вдалося проаналізувати пакет після всіх спроб.")
+                return None
 
 
 def main():
-    print("📂 Читаю dataset.json...")
-    with open("dataset.json", "r", encoding="utf-8") as f:
-        dataset = json.load(f)
+    input_file = "dataset.json"
+    output_file = "results.json"
 
-    print(f"🔍 Починаємо ПАКЕТНИЙ аналіз {len(dataset)} діалогів...\n")
+    # Для аналізу можна залишити BATCH_SIZE = 20,
+    # бо модель генерує мало тексту у відповідь (лише оцінки)
+    batch_size = 20
 
-    results = []
-    # Розбиваємо на пакети по 20
-    batches = [dataset[i:i + BATCH_SIZE] for i in range(0, len(dataset), BATCH_SIZE)]
+    print(f"📂 Читаю {input_file}...")
+    try:
+        with open(input_file, "r", encoding="utf-8") as f:
+            dataset = json.load(f)
+    except FileNotFoundError:
+        print(f"❌ Помилка: Файл {input_file} не знайдено!")
+        return
 
-    for idx, batch in enumerate(batches):
+    # Перетворюємо dict на list для зручної пакетної обробки
+    dialogues_list = [{"dialogue_id": k, "messages": v} for k, v in dataset.items()]
+    total_dialogues = len(dialogues_list)
+
+    print(f"🔍 Починаємо ПАКЕТНИЙ аналіз {total_dialogues} діалогів...\n")
+
+    all_results = {}
+
+    for i in range(0, total_dialogues, batch_size):
+        batch = dialogues_list[i:i + batch_size]
+        current_batch_num = (i // batch_size) + 1
+        total_batches = (total_dialogues + batch_size - 1) // batch_size
+
         print(
-            f"📦 Обробка пакету {idx + 1}/{len(batches)} (Діалоги {idx * BATCH_SIZE + 1} - {idx * BATCH_SIZE + len(batch)})...")
-        try:
-            analyzed_batch = analyze_batch(batch, idx + 1)
+            f"📦 Обробка пакету {current_batch_num}/{total_batches} (Діалоги {i + 1} - {min(i + batch_size, total_dialogues)})...")
 
-            # Збираємо результати і друкуємо
-            for analysis in analyzed_batch:
-                # Знаходимо оригінальний тип чату для повноти
-                original_chat = next((c for c in batch if c["id"] == analysis["chat_id"]), None)
-                chat_type = original_chat["type"] if original_chat else "unknown"
+        batch_result = analyze_batch_with_retry(batch)
 
-                results.append({
-                    "chat_id": analysis["chat_id"],
-                    "chat_type": chat_type,
-                    "analysis": analysis
-                })
+        if batch_result:
+            for item in batch_result:
+                # Збираємо результати назад у словник по dialogue_id
+                d_id = item.pop("dialogue_id", "unknown_id")
+                all_results[d_id] = item
+
+                # Красивий висновок у консоль
+                icon = "✅" if item.get("score", 0) >= 4 else ("⚠️" if item.get("score", 0) == 3 else "❌")
                 print(
-                    f"  ✅ {analysis['chat_id']} -> Intent: {analysis['intent']} | Задоволеність: {analysis['satisfaction']} | Оцінка: {analysis['quality_score']}/5")
+                    f"  {icon} {d_id} -> Intent: {item.get('intent')} | Задоволеність: {item.get('satisfaction')} | Оцінка: {item.get('score')}/5")
 
-            if idx < len(batches) - 1:
-                print("  ⏳ Пауза 10 секунд перед наступним пакетом...")
-                time.sleep(10)
-        except Exception as e:
-            print(f"❌ Помилка пакетного аналізу: {e}")
+        # Пауза між пакетами для обходу Rate Limits
+        if i + batch_size < total_dialogues:
+            print("  ⏳ Пауза 10 секунд перед наступним пакетом...")
+            time.sleep(10)
 
-    with open("results.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
+    # Зберігаємо фінальний результат
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(all_results, f, ensure_ascii=False, indent=4)
 
-    print(f"\n✅ Готово! Результати збережено → results.json")
+    print(f"\n✅ Готово! Результати збережено → {output_file}")
 
 
 if __name__ == "__main__":
