@@ -1,127 +1,388 @@
-[
-  [
-    {
-      "chat_id": "payment_issue",
-      "chat_type": "normal",
-      "analysis": {
+{
+    "payment_success_v1": {
         "intent": "payment_issue",
         "satisfaction": "satisfied",
-        "quality_score": 5,
-        "agent_mistakes": [],
-        "reasoning": "Агент професійно та швидко вирішив проблему з оплатою, запропонувавши альтернативне рішення (нове посилання для оплати), що призвело до повного задоволення клієнта."
-      }
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "Agent quickly identified the payment issue and provided an effective solution (a specific payment link), leading to client satisfaction."
     },
-    {
-      "chat_id": "tech_error",
-      "chat_type": "normal",
-      "analysis": {
+    "tech_success_v1": {
         "intent": "tech_error",
         "satisfaction": "satisfied",
-        "quality_score": 5,
-        "agent_mistakes": [],
-        "reasoning": "Агент Юлія професійно та покроково вирішила технічну проблему клієнта з першого звернення, проявивши емпатію та чіткість у інструкціях, що призвело до повного задоволення клієнта."
-      }
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent demonstrated excellent patience and clear communication, guiding the client through a technical troubleshooting process to successfully resolve the software issue."
     },
-    {
-      "chat_id": "account_access",
-      "chat_type": "normal",
-      "analysis": {
+    "access_success_v1": {
         "intent": "account_access",
         "satisfaction": "satisfied",
-        "quality_score": 5,
-        "agent_mistakes": [],
-        "reasoning": "Агент швидко і професійно вирішив проблему відновлення доступу до акаунту, клієнт повністю задоволений результатом і висловив подяку."
-      }
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "Agent efficiently handled the urgent request for account access by quickly verifying identity and sending the necessary recovery code."
     },
-    {
-      "chat_id": "tariff_question",
-      "chat_type": "normal",
-      "analysis": {
+    "tariff_success_v1": {
         "intent": "tariff_question",
-        "satisfaction": "satisfied",
-        "quality_score": 5,
-        "agent_mistakes": [],
-        "reasoning": "Агент надав вичерпну, структуровану та точну інформацію про тарифний план, відповів на всі уточнювальні запитання клієнта, був ввічливим і професійним протягом усього діалогу."
-      }
+        "satisfaction": "neutral",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent provided comprehensive and clear answers to all client's detailed questions regarding the tariff, demonstrating excellent product knowledge and communication."
     },
-    {
-      "chat_id": "refund",
-      "chat_type": "normal",
-      "analysis": {
+    "refund_success_v1": {
         "intent": "refund",
         "satisfaction": "satisfied",
-        "quality_score": 5,
-        "agent_mistakes": [],
-        "reasoning": "Агент швидко та професійно вирішив питання повернення коштів, надав чітку інформацію про терміни та процес, клієнт явно висловив задоволення результатом."
-      }
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent handled a complaint about a faulty product with empathy, offered a clear resolution (refund or replacement), and efficiently guided the client through the return process."
     },
-    {
-      "chat_id": "payment_conflict",
-      "chat_type": "conflict",
-      "analysis": {
+    "other_success_v1": {
+        "intent": "other",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent was friendly and provided clear, accurate information regarding holiday working hours, resulting in a highly satisfied client."
+    },
+    "tech_success_pro_v1": {
+        "intent": "tech_error",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent displayed strong technical expertise, effectively communicated with a professional client, accurately diagnosed a complex API issue, and provided a swift resolution with clear updates."
+    },
+    "payment_conflict_v1": {
         "intent": "payment_issue",
         "satisfaction": "unsatisfied",
-        "quality_score": 3,
-        "agent_mistakes": [
-          "ignored_question",
-          "no_resolution"
+        "score": 2,
+        "agent_errors": [
+            "ignored_question",
+            "rude_tone"
         ],
-        "reasoning": "Агент поводився ввічливо та запропонував компенсацію, але проігнорував пряме запитання клієнта щодо відповідальності за помилку, не зміг забезпечити негайне вирішення проблеми і запропонував очікування до 24 годин, що є неприйнятним для клієнта, який очікував миттєвий доступ."
-      }
+        "summary": "Despite confirming the double payment and initiating a refund, the agent failed to de-escalate the client's anger, repeatedly ignored questions about bank commissions, and did not effectively manage expectations, resulting in high dissatisfaction."
     },
-    {
-      "chat_id": "rude_agent",
-      "chat_type": "problem",
-      "analysis": {
+    "tech_problem_v1": {
         "intent": "tech_error",
         "satisfaction": "unsatisfied",
-        "quality_score": 1,
-        "agent_mistakes": [
-          "ignored_question",
-          "rude_tone",
-          "no_resolution",
-          "incorrect_info"
+        "score": 1,
+        "agent_errors": [
+            "rude_tone",
+            "false_info",
+            "ignored_question"
         ],
-        "reasoning": "Агент виявив грубість, відмовився розбиратися з проблемою, надав некоректну інформацію (що нічого не змінювалось), проігнорував законні запити клієнта та закрив звернення без будь-якого вирішення."
-      }
+        "summary": "The agent was highly unprofessional, blaming the client's 'entry-level' phone for the app issues and implicitly suggesting a hardware upgrade instead of offering proper troubleshooting, leading to extreme client dissatisfaction."
     },
-    {
-      "chat_id": "wrong_info",
-      "chat_type": "problem",
-      "analysis": {
+    "tariff_problem_v1": {
         "intent": "tariff_question",
         "satisfaction": "satisfied",
-        "quality_score": 5,
-        "agent_mistakes": [],
-        "reasoning": "Агент чітко, повно і ввічливо відповів на всі запитання клієнта щодо тарифного плану, клієнт залишився задоволений отриманою інформацією."
-      }
-    },
-    {
-      "chat_id": "hidden_dissatisfaction_1",
-      "chat_type": "easter_egg",
-      "analysis": {
-        "intent": "refund",
-        "satisfaction": "neutral",
-        "quality_score": 3,
-        "agent_mistakes": [
-          "no_resolution"
+        "score": 5,
+        "agent_errors": [
+            "none"
         ],
-        "reasoning": "Агент ввічливо обробив запит і зареєстрував звернення, але двічі уникнув конкретної відповіді на пряме запитання клієнта щодо термінів повернення коштів, що залишило питання фактично без чіткого вирішення."
-      }
+        "summary": "Agent provided all requested information clearly and accurately, leading to the client's decision to purchase the subscription."
     },
-    {
-      "chat_id": "hidden_dissatisfaction_2",
-      "chat_type": "easter_egg",
-      "analysis": {
+    "access_problem_v1": {
+        "intent": "account_access",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "false_info",
+            "slow_response",
+            "ignored_question"
+        ],
+        "summary": "Agent provided an absurdly bureaucratic and unhelpful solution (writing an official letter to the director) for a simple SMS code issue, completely failing to address the client's problem."
+    },
+    "refund_conflict_v1": {
+        "intent": "refund",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "rude_tone",
+            "ignored_question",
+            "false_info"
+        ],
+        "summary": "The agent was exceptionally rude and unhelpful, flatly refusing a refund request without explanation, ignoring client's rights and questions, and prematurely closing the chat, leading to extreme client outrage."
+    },
+    "payment_problem_2_v1": {
+        "intent": "payment_issue",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "rude_tone",
+            "slow_response",
+            "ignored_question"
+        ],
+        "summary": "The agent provided a generic, unhelpful response regarding payment processing time, showed no empathy for the client's urgent situation, and abruptly closed the chat, leaving the client unsatisfied."
+    },
+    "hidden_dissatisfaction_1_v1": {
+        "intent": "tech_error",
+        "satisfaction": "neutral",
+        "score": 2,
+        "agent_errors": [
+            "slow_response",
+            "ignored_question"
+        ],
+        "summary": "The agent offered a lengthy self-help manual and refused direct assistance for a technical issue, placing the entire burden of resolution on the client and leading to a resigned, neutral satisfaction."
+    },
+    "hidden_dissatisfaction_2_v1": {
+        "intent": "other",
+        "satisfaction": "neutral",
+        "score": 3,
+        "agent_errors": [
+            "false_info"
+        ],
+        "summary": "The agent correctly identified that the promo code had expired due to a company error in marketing, and offered alternatives, but the client remained neutral due to the initial disappointment."
+    },
+    "hidden_dissatisfaction_3_v1": {
         "intent": "account_access",
         "satisfaction": "neutral",
-        "quality_score": 3,
-        "agent_mistakes": [
-          "unnecessary_escalation",
-          "no_resolution"
+        "score": 3,
+        "agent_errors": [
+            "slow_response"
         ],
-        "reasoning": "Агент був ввічливим і структурованим, однак передав типову проблему з доступом до акаунту на ескалацію замість самостійного вирішення, що призвело до незадоволення клієнта очікуванням 24 години та відсутності реального результату під час сесії."
-      }
+        "summary": "The agent accurately informed the client about a lengthy 5-day process for email change, which, while secure, was inconvenient and led to a neutral, resigned client satisfaction."
+    },
+    "mixed_tariff_v1": {
+        "intent": "tariff_question",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent effectively engaged with the client, understood their specific needs, and presented a highly suitable tariff with clear benefits, resulting in enthusiastic client satisfaction."
+    },
+    "mixed_other_v1": {
+        "intent": "other",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "ignored_question",
+            "rude_tone",
+            "false_info"
+        ],
+        "summary": "The agent repeatedly ignored the client's direct request to delete their account, instead pushing irrelevant upsells and retention offers, which led to extreme client frustration and abandonment of the chat."
+    },
+    "mixed_refund_v1": {
+        "intent": "refund",
+        "satisfaction": "unsatisfied",
+        "score": 2,
+        "agent_errors": [
+            "ignored_question",
+            "false_info"
+        ],
+        "summary": "The agent immediately shifted responsibility for a delayed refund to the client's bank without offering any internal checks or assistance, leaving the client frustrated and feeling abandoned."
+    },
+    "mixed_tech_v1": {
+        "intent": "tech_error",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "rude_tone",
+            "ignored_question",
+            "false_info",
+            "slow_response"
+        ],
+        "summary": "The agent was highly defensive, denied any system bugs without proper investigation, and failed to de-escalate an extremely angry client, leading to a complete communication breakdown and severe dissatisfaction."
+    },
+    "payment_success_v2": {
+        "intent": "payment_issue",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent quickly identified the payment issue and provided an effective solution, leading to a successful resolution and client satisfaction."
+    },
+    "tech_success_v2": {
+        "intent": "tech_error",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent demonstrated exceptional patience and clarity, guiding a non-technical client through multiple troubleshooting steps, which ultimately led to a successful resolution of a complex technical issue."
+    },
+    "access_success_v2": {
+        "intent": "account_access",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent efficiently processed the client's urgent request for account access by sending a recovery code, resolving the issue promptly."
+    },
+    "tariff_success_v2": {
+        "intent": "tariff_question",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent provided exceptionally detailed and transparent answers to all client's questions regarding the tariff, effectively addressing concerns and ensuring high client satisfaction."
+    },
+    "refund_success_v2": {
+        "intent": "refund",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent handled a refund request with empathy and efficiency, offering a convenient solution for product return and ensuring the client felt heard and satisfied with the resolution."
+    },
+    "other_success_v2": {
+        "intent": "other",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent provided a prompt, clear, and detailed response to a general inquiry about holiday working hours, which was highly appreciated by the client."
+    },
+    "tech_success_pro_v2": {
+        "intent": "tech_error",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent effectively communicated with a technical client, quickly understood the complex issue, facilitated internal escalation, and confirmed the successful resolution, demonstrating high competence."
+    },
+    "payment_conflict_v2": {
+        "intent": "payment_issue",
+        "satisfaction": "unsatisfied",
+        "score": 2,
+        "agent_errors": [
+            "ignored_question"
+        ],
+        "summary": "The agent initiated a refund for a double payment but failed to effectively de-escalate the highly agitated client and could not provide a clear resolution regarding the bank commission, leading to extreme dissatisfaction."
+    },
+    "tech_problem_v2": {
+        "intent": "tech_error",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "rude_tone",
+            "false_info"
+        ],
+        "summary": "The agent adopted a dismissive and blaming tone, attributing the app's issues solely to the client's 'outdated' device and offering no practical solutions, resulting in high client frustration and dissatisfaction."
+    },
+    "tariff_problem_v2": {
+        "intent": "tariff_question",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent clearly and concisely answered all questions regarding the 'Premium' tariff, providing sufficient information for the client to make a positive decision."
+    },
+    "access_problem_v2": {
+        "intent": "account_access",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "false_info",
+            "ignored_question"
+        ],
+        "summary": "The agent provided an unacceptably bureaucratic and unhelpful solution for a simple account access issue, demanding an official letter instead of offering immediate assistance, leading to client frustration."
+    },
+    "refund_conflict_v2": {
+        "intent": "refund",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "rude_tone",
+            "ignored_question"
+        ],
+        "summary": "The agent was unhelpful and dismissive, rigidly citing policy without addressing the client's core issue of non-delivery, leading to extreme client anger and dissatisfaction."
+    },
+    "payment_problem_2_v2": {
+        "intent": "payment_issue",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "rude_tone",
+            "ignored_question"
+        ],
+        "summary": "The agent provided a generic, unhelpful response to an urgent payment issue, failed to address the client's distress, and abruptly closed the chat, resulting in complete client dissatisfaction."
+    },
+    "hidden_dissatisfaction_1_v2": {
+        "intent": "tech_error",
+        "satisfaction": "neutral",
+        "score": 2,
+        "agent_errors": [
+            "slow_response",
+            "ignored_question"
+        ],
+        "summary": "The agent quickly shifted blame to the client's home network and provided an impractical 100-page manual for self-diagnosis, failing to offer direct assistance and leaving the client feeling unsupported."
+    },
+    "hidden_dissatisfaction_2_v2": {
+        "intent": "other",
+        "satisfaction": "neutral",
+        "score": 2,
+        "agent_errors": [
+            "false_info",
+            "ignored_question"
+        ],
+        "summary": "The agent explained the promo code's early expiration, which contradicted the client's expectations, and offered no alternative, leaving the client feeling that the situation was unfair."
+    },
+    "hidden_dissatisfaction_3_v2": {
+        "intent": "account_access",
+        "satisfaction": "neutral",
+        "score": 3,
+        "agent_errors": [
+            "slow_response"
+        ],
+        "summary": "The agent clearly explained the process for changing an account email, but the stated 5-day waiting period for this simple request was inconvenient for the client, leading to neutral satisfaction."
+    },
+    "mixed_tariff_v2": {
+        "intent": "tariff_question",
+        "satisfaction": "satisfied",
+        "score": 5,
+        "agent_errors": [
+            "none"
+        ],
+        "summary": "The agent skillfully adapted to the client's informal communication style, providing detailed and clear information about the tariff, which resulted in a positive and satisfying interaction."
+    },
+    "mixed_other_v2": {
+        "intent": "other",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "ignored_question",
+            "rude_tone"
+        ],
+        "summary": "The agent repeatedly ignored the client's direct request to delete their account, instead pushing aggressive retention offers, which led to extreme client frustration and a complete failure to address the initial query."
+    },
+    "mixed_refund_v2": {
+        "intent": "refund",
+        "satisfaction": "unsatisfied",
+        "score": 2,
+        "agent_errors": [
+            "ignored_question",
+            "rude_tone"
+        ],
+        "summary": "The agent shifted responsibility for a delayed refund to the client's bank without offering further assistance or empathy, leaving the client feeling dismissed and unsatisfied."
+    },
+    "mixed_tech_v2": {
+        "intent": "tech_error",
+        "satisfaction": "unsatisfied",
+        "score": 1,
+        "agent_errors": [
+            "rude_tone",
+            "false_info",
+            "ignored_question"
+        ],
+        "summary": "The agent was highly confrontational, immediately denied any system issues, blamed the client, and demanded impossible proof, which severely escalated the client's anger and left the significant financial issue completely unresolved."
     }
-  ]
-]
+}
