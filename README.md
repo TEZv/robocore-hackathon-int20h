@@ -46,7 +46,6 @@
 Завантажити results.json у BI-інструмент (Power BI, Tableau, Metabase, навіть Google Sheets)
 і отримати живий дашборд: середній quality_score по агентам, топ помилок, динаміка задоволеності.
 
-![Visualization Process](<img/PowerBI Analysis.jpg>)
 
 **2. Автоматичні алерти**  <br>
 Тригерити сповіщення коли quality_score < 3 або виявлено hidden dissatisfaction —
@@ -213,7 +212,6 @@ docker run --env-file .env -v %cd%:/app robocore-hackathon-int20h python analyze
 > Прапор `-v` монтує поточну папку всередину контейнера —
 > завдяки цьому `dataset.json` і `results.json` зберігаються на твій комп'ютер, а не всередині контейнера.
 
-![Process launching](img/Docker-Launch.jpg)
 
 ---
 
